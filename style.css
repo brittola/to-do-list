@@ -113,3 +113,25 @@ hr{
 .checked{
     text-decoration: line-through;
 }
+
+img{
+    width: 40px;
+    height: 40px;
+}
+
+a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
