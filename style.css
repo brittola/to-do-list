@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    height: 100vh;
+}
+
+body{
+    background: linear-gradient(180deg, rgba(116,27,213,1) 12%, rgba(68,23,226,1) 68%);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container{
+    margin: auto;
+    margin-top: 50px;
+    width: 80%;
+    max-width: 500px;
+    border: 2px solid white;
+    padding: 20px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-shadow: 5px 5px 20px black;
+}
+
+.container-newTask{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.container-newTask input{
+    padding: 5px;
+    font-weight: bold;
+    outline: none;
+    width: 82%;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.container-newTask button{
+    padding: 5px;
+    width: 15%;
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: rgb(92, 27, 213);
+    color: white;
+    border-radius: 5px;
+
+    transition: background-color 400ms;
+}
+
+.container-newTask button:hover{
+    background-color: #ad00ff;
+}
+
+hr{
+    width: 100%;
+}
+
+#outList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.task{
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.task button{
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    background-color: rgb(92, 27, 213);
+    color: white;
+
+    transition: background-color 400ms;
+}
+
+.task button:hover{
+    background-color: #ad00ff;
+}
+
+.checked{
+    text-decoration: line-through;
+}
