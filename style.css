@@ -82,6 +82,7 @@ hr{
 }
 
 .task{
+    position: relative;
     width: 100%;
     background-color: white;
     color: black;
@@ -93,6 +94,11 @@ hr{
 
 .task:hover{
     background-color: rgb(230, 230, 230);
+}
+
+.task p{
+    width: 85%;
+    overflow-wrap: break-word;
 }
 
 .task button{
