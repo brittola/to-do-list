@@ -1,4 +1,3 @@
-//declarar variáveis
 let inTask = document.getElementById('inTask');
 let btAdd = document.getElementById('btAdd');
 let outList = document.getElementById('outList');
@@ -6,14 +5,10 @@ let editScreen = document.querySelector('.editScreen');
 let inEdit = document.getElementById('inEdit');
 let btEdit = document.getElementById('btEdit');
 
-//essa variável vai receber o id de qual task foi clicada, para quando o usuário
-//confirmar a edição da task, esse id ser utilizado para editar a task exata no array
 let taskToEditIndex;
 
-//declara array que vai armazenar as tasks como objetos (texto da task e status de concluído ou não)
 let tasks = [];
 
-//se já houver tasks salvas em local storage, pega e coloca no array tasks
 const getData = () => {
     if (localStorage.getItem('tasks')) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -22,13 +17,10 @@ const getData = () => {
     }
 }
 
-//salva o array em localStorage com a chave 'tasks' que será utilizada na função getData
 const setData = (array) => {
     localStorage.setItem('tasks', JSON.stringify(array));
 }
 
-//pega o que estiver digitado no campo, pega o array tasks, adiciona a ele a tarefa digitada com status vazio
-//em seguida salva o array em localStorage e chama a função refresh
 const addTask = () => {
     if (inTask.value == '') {
         alert('Digite uma tarefa para adicionar.');
@@ -50,15 +42,12 @@ const addTask = () => {
     inTask.focus();
 }
 
-//essa função pega o array que está salvo em localStorage e monta as tasks na tela (antes, limpa as que já estiverem para que não se repitam)
 const refresh = () => {
     getData();
 
     clearOutput();
 
     for (i in tasks) {
-        //cria o texto da task, que foi o previamente digitado, adiciona o estilo de cursor 'pointer' para o usuário saber que é clicável
-        //a esse click, associa a função 'checkTask' e se o status da task no array tasks for 'checked', passa uma classe no CSS com line-through
         let taskText = document.createElement('p');
         taskText.textContent = tasks[i].task;
         taskText.style.cursor = 'pointer';
@@ -67,7 +56,6 @@ const refresh = () => {
             taskText.className = 'checked';
         }
 
-        //cria o botão que vai ser "irmão" do texto da task e associa a ele a função removeTask
         let taskBtRemove = document.createElement('button');
         taskBtRemove.addEventListener('click', removeTask);
         taskBtRemove.textContent = 'X';
@@ -76,7 +64,6 @@ const refresh = () => {
         taskBtEdit.addEventListener('click', openEditScreen);
         taskBtEdit.textContent = '/';
 
-        //cria a div pai do texto e do botão da task e associa a ela a classe no CSS e o id, que vai ser a posição dela no array tasks
         let taskDiv = document.createElement('div');
         taskDiv.setAttribute('id', Number(i));
         taskDiv.className = 'task';
@@ -89,7 +76,6 @@ const refresh = () => {
     }
 }
 
-//checa se tem elementos div no output, se houver, remove eles do fim até o começo
 const clearOutput = () => {
     let currentTasks = outList.getElementsByTagName('div');
 
@@ -98,8 +84,6 @@ const clearOutput = () => {
     }
 }
 
-//essa função é ativada no botão 'X', pega o id do elemento pai desse botão, que é a div
-//task e então remove essa div do array e chama a função refresh para montar a tela novamente
 const removeTask = (event) => {
     let taskId = event.target.parentElement.id;
 
@@ -112,9 +96,6 @@ const removeTask = (event) => {
     refresh();
 }
 
-//essa função é ativada quando se clica no texto da task, pega o id do elemento pai
-//e então muda a propriedade status dessa task no array 'tasks', depois salva e chama a função refresh
-//que vai ler o novo status e passar a class com line-through
 const checkTask = (event) => {
     let taskId = event.target.parentElement.id;
 
@@ -159,9 +140,6 @@ const confirmEdit = () => {
 }
 
 btEdit.addEventListener('click', confirmEdit);
-
-//associa ao botão Add a função addTask
 btAdd.addEventListener('click', addTask);
 
-//chama o refresh ao iniciar a página, para verificar se há um array com tasks previamente salvas e montar a tela
 refresh();
