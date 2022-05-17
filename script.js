@@ -139,15 +139,15 @@ const openEditScreen = (event) => {
 }
 
 const confirmEdit = () => {
-    getData();
-    
     if(inEdit.value == ''){
         alert('Experimente excluir a tarefa para não deixá-la vazia.');
         editScreen.style.display = 'none';
         inEdit.value = '';
         return;
     }
-
+    
+    getData();
+    
     tasks[taskToEditIndex].task = inEdit.value;
 
     setData(tasks);
