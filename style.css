@@ -7,8 +7,8 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html{
-    height: 100vh;
+html, body{
+    min-height: 100%;
 }
 
 body{
@@ -16,7 +16,6 @@ body{
     background: linear-gradient(180deg, rgba(116,27,213,1) 12%, rgba(68,23,226,1) 68%);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
     padding-top: 40px;
 }
 
