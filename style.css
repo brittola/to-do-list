@@ -186,3 +186,9 @@ footer{
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-width: 780px){
+    footer{
+        display: none;
+    }
+}
