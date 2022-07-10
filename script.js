@@ -139,7 +139,17 @@ const confirmEdit = () => {
     refresh();
 }
 
+inEdit.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter){
+        confirmEdit();
+    }
+});
 btEdit.addEventListener('click', confirmEdit);
+inTask.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter'){
+        addTask();
+    }
+});
 btAdd.addEventListener('click', addTask);
 
 refresh();
