@@ -140,7 +140,7 @@ const confirmEdit = () => {
 }
 
 inEdit.addEventListener('keypress', (e) => {
-    if(e.key === 'Enter){
+    if(e.key === 'Enter'){
         confirmEdit();
     }
 });
